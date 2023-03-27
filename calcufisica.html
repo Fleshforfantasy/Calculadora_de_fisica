@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <title> Fisica </title>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">FISICA</h1>
+          <p class="lead">La física es la ciencia natural que estudia la naturaleza de los componentes y fenómenos más fundamentales del Universo como lo son la energía, la materia, la fuerza, el movimiento, el espacio-tiempo, las magnitudes físicas, las propiedades físicas y las interacciones fundamentales.
+        </div>
+      </div>
+
+      <form id="formulario">
+        <label for="distancia">Distancia</label>
+        <input type="text" id="distancia" name="distancia">
+        <select id="distanciaUnidad">
+            <option value="metros">metros</option>
+            <option value="pies">pies</option>
+            <option value="kilometros">kilometros</option>
+            <option value="millas">millas</option>
+
+        </select>
+
+        <br>
+        
+      <form id="formulario">
+        <label for="distancia">Tiempo</label>
+        <input type="text" id="tiempo" name="tiempo">
+        <select id="tiempoUnidad">
+            <option value="segundos">metros</option>
+            <option value="horas">horas</option>
+
+        </select>
+        <br>
+
+        
+    
+        <label for="velocidadUnidad">Unidades de Velocidad</label>
+        <select id="velocidadUnidad">
+            <option value="metros_por_segundo">m/s</option>
+            <option value="pies_por_segundo">ft/s</option>
+            <option value="kilometros_por_hora">km/h</option>
+            <option value="millas_por_hora">mi/h</option>
+
+        </select>
+        <br>
+        <input type="button" value="Calcular" onclick="Calcular()">
+    </form>
+
+    <p style="color: purple">Velocidad: <span id="Velocidad"></span></p>
+    <p style="color: purple">Aceleracion: <span id="Aceleracion"></span></p>
+    <p style="color: purple">Rapidez: <span id="Rapidez"></span></p>
+</div>
+</div>
+
+<script>
+    function Calcular(){
+    
+        const distancia = parseFloat(document.getElementById('distancia').value);
+        console.log("La distancia es:"+distancia);
+
+        document.getElemntById('velocidad').textContent=velocidad.toFixed(2) + ' ' + velocidad;
+    }
+
+   
+    </script>
+</body>
+</html>
+
