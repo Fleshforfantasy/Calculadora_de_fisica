@@ -65,42 +65,8 @@
     function Calcular(){
     
         const distancia = parseFloat(document.getElementById('distancia').value);
-        const tiempo = parseFloat(document.getElementById('tiempo').value);
-        const distanciaUnidad = parseFloat(document.getElementById('distanciaUnidad').value);
-        const tiempoUnidad = parseFloat(document.getElementById('tiempoUnidad').value);
-        const velocidadUnidad = parseFloat(document.getElementById('velocidadUnidad').value);
-
-        //Convertir unidad a Sistema metrico(SI)
-
-        let distanciaSI = 0;
-        let tiempoSI = 0;
-       if (distanciaUnidad === 'metros'){
-        distanciaSI = distancia;
-       }
-       else if (distanciaUnidad === 'pies'){
-        distanciaSI = distancia /3.281;
-       }
-       if (tiempoUnidad === 'segundos'){
-        tiempoSI = tiempo;
-       }
-       else if (tiempoUnidad === 'horas'){
-        tiempoSI = tiempo * 3600;
-       }
-
-       //Calcular la Velocidad, aceleracio y (rapidez)
-
-       let velocidad = 0;
-       let aceleracion = 0;
-       let rapidiez = 0;
-       if(velocidadUnidad === 'metros_por_segundo'){
-        velocidad = distanciaSI / tiempoSI;
-        rapidez = velocidad;
-        aceleracion = velocidad / tiempoSI;
-
-       }
-
-       
         console.log("La distancia es:"+distancia);
+
         document.getElemntById('velocidad').textContent=velocidad.toFixed(2) + ' ' + velocidad;
     }
 
