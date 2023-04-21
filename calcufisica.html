@@ -31,11 +31,11 @@
 
         <br>
         
-      <form id="formulario">
-        <label for="distancia">Tiempo</label>
+    
+        <label for="tiempo">tiempo</label>
         <input type="text" id="tiempo" name="tiempo">
         <select id="tiempoUnidad">
-            <option value="segundos">metros</option>
+            <option value="segundos">segundos</option>
             <option value="horas">horas</option>
 
         </select>
@@ -53,21 +53,80 @@
         </select>
         <br>
         <input type="button" value="Calcular" onclick="Calcular()">
-    </form>
 
-    <p style="color: purple">Velocidad: <span id="Velocidad"></span></p>
-    <p style="color: purple">Aceleracion: <span id="Aceleracion"></span></p>
-    <p style="color: purple">Rapidez: <span id="Rapidez"></span></p>
+    
+       </form>
+       <p id="resultado"></p>
+
+    <p style="color: rgb(109, 65, 167)">Velocidad: <span id="velocidad"></span></p>
+    <p style="color: rgb(93, 67, 212)">Aceleracion: <span id="aceleracion"></span></p>
+    <p style="color: rgb(160, 113, 60)">Rapidez: <span id="rapidez"></span></p>
+    </nav>
 </div>
 </div>
 
 <script>
     function Calcular(){
     
-        const distancia = parseFloat(document.getElementById('distancia').value);
-        console.log("La distancia es:"+distancia);
+        const distancia= parseFloat(document.getElementById('distancia').value);
+                const tiempo= parseFloat(document.getElementById('tiempo').value);
+                const distanciaUnidad= document.getElementById('distanciaUnidad').value;
+                const tiempoUnidad= document.getElementById('tiempoUnidad').value;
+                const velocidadUnidad= document.getElementById('velocidadUnidad').value;
 
-        document.getElemntById('velocidad').textContent=velocidad.toFixed(2) + ' ' + velocidad;
+
+                //Convertir Unidades a Sistema Metrico(SI)
+                let distanciaSI = 0;
+                let tiempoSI = 0;
+                if (distanciaUnidad==='metros'){
+                    distanciaSI = distancia;
+                }
+                else if (distanciaUnidad==='pies'){
+                    distanciaSI = distancia / 3.281;
+                }
+
+                if (tiempoUnidad==='segundos'){
+                    tiempoSI=tiempo;
+                }
+                else if (tiempoUnidad==='horas'){
+                    tiempoSI=tiempo*3600;
+                }
+
+                //Calcular la velocidad, aceleracion y rapidez
+                let velocidad = 0;
+                let aceleracion = 0;
+                let rapidez = 0;
+                if (velocidadUnidad==='metros_por_segundo'){
+                    velocidad = distanciaSI / tiempoSI;
+                    rapidez = velocidad //esta no es la formula
+                    aceleracion = velocidad/tiempoSI
+                }
+                else if (velocidadUnidad==='pies_por_segundo'){
+                    velocidad = (distanciaSI*3.281) / tiempoSI;
+                    rapidez = velocidad //esta no es la formula
+                    aceleracion = velocidad/tiempoSI
+                }
+                else if (velocidadUnidad==='kilometros_por_hora'){
+                    velocidad = (distanciaSI/1000) / (tiempoSI/3600);
+                    rapidez = velocidad //esta no es la formula
+                    aceleracion = velocidad/tiempoSI
+                }
+                else if (velocidadUnidad==='millas_por_hora'){
+                    velocidad = (distanciaSI*1609) / (tiempoSI*3600);
+                    rapidez = velocidad //esta no es la formula
+                    aceleracion = velocidad/tiempoSI
+                }
+
+                //Mostrar los resultados
+                let resultados = '';
+
+                document.getElementById('velocidad').textContent=velocidad.toFixed(2) + ' ' + velocidadUnidad;
+                document.getElementById('aceleracion').textContent=aceleracion.toFixed(2) + ' ' + velocidadUnidad;
+                document.getElementById('rapidez').textContent=rapidez.toFixed(2) + ' ' + velocidadUnidad;
+
+                document.getElementById('resultado').innerHTML=resultados;
+
+            
     }
 
    
